@@ -14,8 +14,10 @@ app.use(session({
   duration: 30 * 60 * 1000,
   activeDuration: 5 * 60 * 1000,
 }));
-
-var dbUri = 'mongodb://dev:dev@ds031531.mongolab.com:31531/openshift_90r4hnt6_rrru48g7';
+var user = ''; //your user here
+var password = ''; //your password here
+var dbName = ''; //your database here
+var dbUri = 'mongodb://'+user+':'+password+'dev@ds031531.mongolab.com:31531/'+dbName;
 
 mongoose.connect(dbUri, function(err, res){
     if(err){
