@@ -1,0 +1,31 @@
+{
+  "name": "ContabilidadNodeJS",
+  "version": "0.3.0",
+  "description": "Programa de contabilidad utilizando nodeJS, angularJS y MongoDB",
+  "private": true,
+  "keywords": [
+    "OpenShift",
+    "Node.js",
+    "application",
+    "openshift",
+    "angularJS",
+    "MongoDB"
+  ],
+  "author": {
+    "name": "Jose Miguel Navarro",
+    "email": "jmn8718@gmail.com",
+    "url": "http://nodejsapi-tachikoma008.rhcloud.com/"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "~1",
+    "client-sessions": "^0.7.0",
+    "cookie-parser": "~1",
+    "ejs": "~2",
+    "express": "~4",
+    "mongoose": "~3"
+  }
+}

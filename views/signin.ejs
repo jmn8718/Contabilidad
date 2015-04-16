@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html ng-app="cuentasApp">
+  <head>
+      <title><%= title %></title>
+      <% include partials/head.ejs%>
+  </head>
+  <body>
+      <% include partials/header.ejs%>
+
+      <div class="container" ng-controller="UsuariosController">
+        <form class="form-signin">
+            <label for="inputEmail" class="sr-only">Email address</label>
+            <input type="email" id="inputEmail" class="form-control" placeholder="Email address" ng-model="usuario.usuario" required autofocus>
+            <label for="inputPassword" class="sr-only">Password</label>
+            <input type="password" id="inputPassword" class="form-control" placeholder="Password" ng-model="usuario.password" required>
+            <button class="btn btn-lg btn-primary btn-block" type="submit" ng-click="registerUser()">Sign in</button>
+        </form>
+      </div>
+
+      <% include partials/scriptsFooter.ejs%>
+  </body>
+</html> 

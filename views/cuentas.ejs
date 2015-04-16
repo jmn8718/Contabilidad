@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html ng-app="cuentasApp" xmlns="http://www.w3.org/1999/html">
+  <head>
+      <title><%= title %></title>
+      <% include partials/head.ejs%>
+  </head>
+  <body>
+    <% include partials/header.ejs%>
+
+    <div class="container" ng-controller="CuentasController">
+        <form name="cuentaForm" class="form-inline" role="form" ng-submit="cuentaForm.$valid && addCuenta()" novalidate>
+            <div class="row">
+              <div class="form-group">
+                  <label for="cuenta">Cuenta:</label>
+                  <input type="text" class="form-control" id="cuenta" ng-model="registro.cuenta" required>
+              </div>
+              <div class="form-group">
+                  <label for="valor">Valor:</label>
+                  <input type="number" class="form-control bfh-number" id="valor" ng-model="registro.valor" value="0" min="0" required>
+              </div>
+              <div class="form-group">
+                <label for="tipos">Tipo:</label>
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="tipos" ng-model="registro.tipo" id="Gasto" value="Gasto" checked>
+                    Gastos
+                  </label>
+                  <label>
+                    <input type="radio" name="tipos" ng-model="registro.tipo" id="Ingreso" value="Ingreso">
+                    Ingresos
+                  </label>
+                </div>
+              </div>
+              <div class="form-group">
+                  <label for="fecha">Fecha:</label>
+                  <div class="input-group">
+                    <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="registro.fecha" is-open="opened" min-date="2014-01-01" max-date="'2015-12-31'" datepicker-options="dateOptions" close-text="Close" placeholder="" required/>
+                      <span class="input-group-btn">
+                          <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                      </span>
+                  </div>
+              </div>
+              <button type="submit" class="btn btn-primary">AÑADIR</button>
+            </div>
+        </form>
+        <hr>
+      <div class="form-inline">
+        <label for="filtro">FILTRO:</label>
+        <input type="text" id="filtro" class="form-control" ng-model="filtro">
+      </div>
+      <table class="table">
+          <thead>
+            <th>Cuenta</th>
+            <th>Valor</th>
+            <th>Tipo</th>
+            <th>Fecha</th>
+            <th>Eliminar</th>
+          </thead>
+          <tbody>
+            <tr ng-repeat="cuenta in cuentas | orderBy: '-fecha' | filter:filtro">
+                <td>{{cuenta.cuenta}}</td>
+                <td>{{cuenta.valor | currency:"&euro; "}}</td>
+                <td>{{cuenta.tipo}}</td>
+                <td>{{cuenta.fecha | date:'dd-MM-yyyy' }}</td>
+                <td>
+                    <button class="btn btn-danger btn-xs" ng-click="deleteCuenta(cuenta._id)" >
+                        <span class="glyphicon glyphicon-trash"></span>
+                    </button>
+                </td>
+            </tr>
+          </tbody>
+      </table>
+    </div>
+
+    <% include partials/scriptsFooter.ejs%>
+  </body>
+</html>

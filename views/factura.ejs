@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html ng-app="cuentasApp" xmlns="http://www.w3.org/1999/html">
+  	<head>
+      	<title><%= title %></title>
+      	<meta charset="UTF-8">
+    	<link rel='stylesheet' href='/stylesheets/factura.css' />
+	</head>
+	<body class="factura">
+		<div ng-controller="FacturasController">
+			<div class="row" id="datosUsuario">
+				<div class="caja" id="usuario">
+					Jose Miguel Navarro Madrigal<br>
+					DNI: 03.790.777-D<br>
+					Travesia del Salvador, 5<br>
+					45200 Illescas (Toledo)
+				</div>
+  				<div id="informacion">
+  					<div class="caja texto" id="numero">
+  						Nº: {{factura.numero}}
+  					</div>
+  					<div id="fecha">
+  						{{factura.fecha}}
+  					</div>
+  				</div>
+			</div>
+			<div class="row">
+			</div>
+			<div class="row" id="datosCliente">
+				<div class="caja" id="cliente">
+					<label>CLIENTE:</label>
+					<div class="texto">Funcave</div>
+				</div>
+				<div class="caja" id="domicilio">
+					<label>DIRECCIÓN:</label>
+					<div class="texto">
+						C/Manuel de Vega, nº 3<br>
+						45200 Illescas (Toledo)
+					</div>
+				</div>
+			</div>
+			<div class="row" id="articulos">
+				<table class="tabla">
+					<thead>
+						<th class="numero">CANTIDAD</th>
+						<th class="texto">ARTICULO</th>
+						<th class="numero">PRECIO</th>
+						<th class="numero">EUROS</th>
+					</thead>
+					<tbody>
+						<tr>
+							<td>159</td>
+							<td>COLACAO</td>
+							<td>1.89 $</td>
+							<td>9999.90 $</td>
+						</tr>
+						<tr>
+							<td>159</td>
+							<td>COLACAO</td>
+							<td>1.89 $</td>
+							<td>9999.90 $</td>
+						</tr>
+						<tr>
+							<td>159</td>
+							<td>COLACAO</td>
+							<td>1.89 $</td>
+							<td>9999.90 $</td>
+						</tr>
+						<tr>
+							<td>159</td>
+							<td>COLACAO</td>
+							<td>1.89 $</td>
+							<td>9999.90 $</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="row" id="resumen">
+				<table class="tabla resumen">
+					<thead>
+						<th>BASE IMPONIBLE</th>
+						<th>IMPORTE IVA</th>
+						<th>TOTAL FACTURA</th>
+					</thead>
+					<tbody>
+						<tr>
+							<td>999.90 $</td>
+							<td>999.90 $</td>
+							<td>9999.90 $</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="row texto" id="firma">
+				FIRMA:
+			</div>
+		</div>
+	</body>
+</html>

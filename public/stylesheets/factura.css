@@ -1,0 +1,67 @@
+body.factura{
+	margin: auto;
+	border: 1px dotted black;
+	width: 210mm;
+	height: 297mm;
+	font-size: 24px;
+}
+.row{
+	width: 100%;
+	margin-bottom: 15px;
+	clear: both;
+}
+.caja{
+	border:  1px solid black;
+}
+.texto{
+	text-align: center;	
+}
+#usuario{
+	float: left;
+	padding: 5px;
+}
+#datosCliente{
+	margin-top: 15px;
+	clear: both;
+}
+#informacion{
+	float: right;
+}
+#numero{
+	font-weight: bold;
+}
+#fecha{
+	padding-top: 20px;
+}
+#resumen{
+	font-size: 20px;
+}
+.tabla{
+	text-align: center;
+	border: 1px solid black;
+    border-spacing: 0;
+    margin: auto;
+}
+th.numero{
+	width: 18%;
+}
+th.texto{
+	width: 44%;
+}
+.resumen{
+	float: right;
+}
+td{
+	font-size: 20px;
+}
+th,td{	
+	border: 1px solid black;
+	padding: 5px;
+}
+#firma{
+	clear: both;
+	padding-top: 30px;
+}
+#articulos{
+	height: 130mm;
+}

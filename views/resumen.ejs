@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html ng-app="cuentasApp" xmlns="http://www.w3.org/1999/html">
+  <head>
+      <title><%= title %></title>
+      <% include partials/head.ejs%>
+  </head>
+  <body>
+    <% include partials/header.ejs%>
+
+    <div class="container" ng-controller="ResumenController">
+      <div class="row">
+        <div class="col-md-3 hidden-xs hidden-sm sidebar">
+        <!--
+          <h3>Filtros:</h3>
+          <div class="list-group">
+            <div class="list-group-item">              
+              <form>
+                <h4>Años:</h4>
+                <div class="radio" ng-repeat="anual in resumenes | orderBy: '-year'">
+                  <label>
+                    <input type="radio" name="years" ng-model="myYear" value="{{anual.year}}">
+                    {{anual.year}}
+                  </label>
+                </div>
+              </form> 
+              You have selected: {{myYear}}
+            </div>
+            <div class="list-group-item">              
+              <h4>Cuentas:</h4>
+            </div>
+          </div>
+          <button class="btn btn-primary center-block" ng-click="filtrar()">FILTRAR</button>
+        -->
+        </div>
+        <div class="col-md-8">
+          <div class"row" ng-repeat="anual in resumenes | orderBy: '-year'">
+            <h2>{{anual.year}}</h2>
+            <table class="table">
+              <thead>
+                <th>Mes</th>
+                <th>Ingresos</th>
+                <th>Gastos</th>
+                <th>Total</th>
+              </thead>
+              <tbody>
+                <tr ng-repeat="mes in anual.values | orderBy: 'month'">
+                    <td>{{mes.month}}</td>
+                    <td>{{mes.values.ingresos}}</td>
+                    <td>{{mes.values.gastos}}</td>
+                    <td>{{mes.values.total}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div><!--col-md-9-->
+      </div><!--row-->
+    </div><!--container-->
+
+    <% include partials/scriptsFooter.ejs%>
+  </body>
+</html>

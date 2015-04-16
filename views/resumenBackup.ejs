@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html ng-app="resumenApp" xmlns="http://www.w3.org/1999/html">
+  <head>
+      <title><%= title %></title>
+      <% include partials/head.ejs%>
+  </head>
+  <body>
+    <% include partials/header.ejs%>
+
+    <div class="container" ng-controller="ResumenBackUpController">
+      <div class"row" ng-repeat="anual in resumenes | orderBy: '-year'">
+        <h2>{{anual.year}}</h2>
+        <table class="table">
+          <thead>
+            <th>Mes</th>
+            <th>Ingresos</th>
+            <th>Gastos</th>
+            <th>Total</th>
+          </thead>
+          <tbody>
+            <tr ng-repeat="mes in anual.values | orderBy: 'month'">
+                <td>{{mes.month}}</td>
+                <td>{{mes.values.ingresos}}</td>
+                <td>{{mes.values.gastos}}</td>
+                <td>{{mes.values.total}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+    </div>
+
+    
+        <hr>
+      <table class="table">
+          <thead>
+            <th>Concepto</th>
+            <th>Cantidad</th>
+          </thead>
+          <tbody>
+            <tr ng-repeat="resumen in resumenes | orderBy: '-cantidad'">
+                <td>{{resumen.concepto}}</td>
+                <td>{{resumen.cantidad | currency:"&euro; "}}</td>
+            </tr>
+          </tbody>
+      </table>
+
+    <% include partials/scriptsFooter.ejs%>
+    <script src="javascripts/resumenBackUp.js"></script>
+  </body>
+</html>
