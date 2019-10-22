@@ -26,6 +26,6 @@
     "cookie-parser": "~1",
     "ejs": "~2",
     "express": "~4",
-    "mongoose": "~3"
+    "mongoose": "~5"
   }
 }
